@@ -1,0 +1,25 @@
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+
+# Java
+*.class
+hs_err_pid*
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
