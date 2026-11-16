@@ -1,3 +1,20 @@
+# Java LTS Lab
+
+**A practical laboratory exploring the evolution of Java across Long-Term Support (LTS) releases.**
+
+## Overview
+
+`java-lts-lab` is an educational and technical reference repository dedicated to exploring the evolution of the Java platform through practical implementations, code comparisons, automated tests, and technical documentation.
+
+The project covers significant changes introduced across Java LTS releases, focusing on language features, standard APIs, JVM capabilities, concurrency, and modern enterprise application development.
+
+It combines two complementary perspectives:
+
+- **Core Java:** understanding the evolution of the language and platform independently of external frameworks.
+- **Spring Boot:** applying Java capabilities in practical enterprise application scenarios.
+
+The goal is not simply to list new features, but to understand how they work, why they were introduced, what problems they solve, and how they influence software design and development practices.
+
 ## Objectives
 
 - Explore the evolution of Java across LTS releases.
@@ -13,7 +30,7 @@
 The repository initially focuses on the following LTS releases:
 
 | Java Version | Release Year | Main Areas of Exploration |
-
+|---|---:|---|
 | Java 8 | 2014 | Lambda Expressions, Streams, Optional, Date and Time API |
 | Java 11 | 2018 | HTTP Client, String API, Files API |
 | Java 17 | 2021 | Records, Sealed Classes, Pattern Matching |
