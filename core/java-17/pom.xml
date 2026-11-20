@@ -26,18 +26,32 @@
 
   <build>
     <plugins>
+
+      <!-- Java 17 compiler configuration -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.13.0</version>
+        <configuration>
+          <release>17</release>
+          <compilerArgs>
+            <arg>--enable-preview</arg>
+            <arg>--add-modules=jdk.incubator.vector,jdk.incubator.foreign</arg>
+          </compilerArgs>
+        </configuration>
       </plugin>
 
+      <!-- JUnit 5 test execution -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.2.5</version>
+        <configuration>
+          <jvm>${env.JAVA_HOME}/bin/java.exe</jvm>
+          <argLine>--enable-preview --add-modules=jdk.incubator.vector,jdk.incubator.foreign</argLine>
+        </configuration>
       </plugin>
+
     </plugins>
   </build>
-
 </project>
