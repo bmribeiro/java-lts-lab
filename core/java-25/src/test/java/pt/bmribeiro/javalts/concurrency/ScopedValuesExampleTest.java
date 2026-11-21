@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class ScopedValuesExampleTest {
 
     @Test
-    void shouldPropagateRequestIdAcrossLayers() {
+    void shouldPropagateRequestIdAcrossLayers() throws Exception {
 
         String result =
             ScopedValuesExample.handleRequest("REQ-001");
@@ -22,7 +22,7 @@ class ScopedValuesExampleTest {
     }
 
     @Test
-    void shouldRestorePreviousValueAfterNestedScope() {
+    void shouldRestorePreviousValueAfterNestedScope() throws Exception {
 
         String result =
             ScopedValuesExample.demonstrateRebinding(
@@ -37,7 +37,7 @@ class ScopedValuesExampleTest {
     }
 
     @Test
-    void shouldNotKeepBindingAfterScopeCompletes() {
+    void shouldNotKeepBindingAfterScopeCompletes() throws Exception {
 
         ScopedValuesExample.handleRequest("REQ-001");
 
@@ -50,8 +50,8 @@ class ScopedValuesExampleTest {
     void shouldNotKeepBindingAfterException() {
 
         assertThrows(
-            NullPointerException.class,
-            () -> ScopedValuesExample.handleRequest(null)
+            IllegalStateException.class,
+            () -> ScopedValuesExample.executeWithFailure("REQ-ERROR")
         );
 
         assertFalse(

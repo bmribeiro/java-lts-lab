@@ -43,7 +43,7 @@ public class ScopedValuesExample {
      * @param requestId request identifier
      * @return result obtained from the repository layer
      */
-    public static String handleRequest(String requestId) {
+    public static String handleRequest(String requestId) throws Exception {
 
         return ScopedValue.where(REQUEST_ID, requestId)
             .call(ScopedValuesExample::controllerLayer);
@@ -91,7 +91,7 @@ public class ScopedValuesExample {
      */
     public static String demonstrateRebinding(
         String outerRequestId,
-        String innerRequestId) {
+        String innerRequestId) throws Exception {
 
         return ScopedValue.where(REQUEST_ID, outerRequestId)
             .call(() -> {
@@ -120,7 +120,7 @@ public class ScopedValuesExample {
         return REQUEST_ID.isBound();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         System.out.println(handleRequest("REQ-001"));
 
@@ -131,5 +131,21 @@ public class ScopedValuesExample {
         System.out.println(
             "Request context bound: " + isRequestBound()
         );
+    }
+
+    /**
+     * Executes a request that deliberately fails.
+     *
+     * This method demonstrates that a scoped value binding
+     * is automatically removed when an exception occurs.
+     *
+     * @param requestId request identifier
+     */
+    public static void executeWithFailure(String requestId) {
+
+        ScopedValue.where(REQUEST_ID, requestId)
+            .run(() -> {
+                throw new IllegalStateException("Simulated failure");
+            });
     }
 }

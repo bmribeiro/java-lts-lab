@@ -33,6 +33,9 @@
         <version>3.14.1</version>
         <configuration>
           <release>25</release>
+          <compilerArgs>
+            <arg>--enable-preview</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
 
@@ -40,6 +43,9 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.5.3</version>
+        <configuration>
+          <argLine>--enable-preview -XX:+UseCompactObjectHeaders</argLine>
+        </configuration>
       </plugin>
     </plugins>
   </build>
